@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .box img{
+            width: 200px;
+            height: 200px;
+            cursor: move;
+        }
+        .containr{
+            width: 50%;
+           display: flex;
+            flex-wrap: wrap;
+  
+            gap: 10px;
+        }
+        .big{
+            width: 500px;
+            height: 415px;
+        }
+        .mega{
+            display: flex;
+            gap: 100px;
+        }
+        .final{
+            height: 500px;
+            width: 700px;
+            border: 1px solid black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .final div{
+            border: 1px solid rgb(34, 33, 33);
+            width: 200px;
+            height: 200px;
+        }
+        h1{
+            text-align: center;
+            font-size: 50px;
+            color: white;
+            margin: 0 auto;
+            width: 300px;
+        }
+        body{
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Image Puzzle Game</h1>
+    <div class="mega">
+
+        
+        <div class="pexel">
+            <img src="../images/pexels-photo-931007.jpeg" alt="" class="big">
+            
+        </div>
+        <div class="containr" ondragstart="drag(event) ">
+            
+            <div class="box" ><img src="../images/cut_images_ggeIjxEkrVl0GiPf/image_part_001.jpg"  alt="" 
+                ondragstart="drag(event)"               
+                ></div>
+            <div class="box"><img src="../images/cut_images_ggeIjxEkrVl0GiPf/image_part_002.jpg" ondragstart="drag(event)"          alt=""></div>
+            <div class="box"><img src="../images/cut_images_ggeIjxEkrVl0GiPf/image_part_003.jpg" ondragstart="drag(event)"          alt=""></div>
+            <div class="box"><img src="../images/cut_images_ggeIjxEkrVl0GiPf/image_part_004.jpg" ondragstart="drag(event)"          alt=""></div>
+            <div class="box"><img src="../images/cut_images_ggeIjxEkrVl0GiPf/image_part_005.jpg" ondragstart="drag(event)"          alt=""></div>
+            <div class="box"><img src="../images/cut_images_ggeIjxEkrVl0GiPf/image_part_006.jpg" alt="" ondragstart="drag(event)"         ></div>
+        </div>
+    </div>
+
+    <div class="final"  ondragover="allowDrag(event)" ondrop="over(event)">
+
+
+            <div>
+
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+    </div>
+
+    <script>
+        function drag(e){
+            e.dataTransfer.setData("text/plain" , e.target.src);
+            console.log(e.target.src);
+        }
+
+        function allowDrag(e){
+            e.preventDefault()
+        }
+
+        function over(e){
+            e.preventDefault()
+            let id = e.dataTransfer.getData("text/plain" );
+ 
+
+            console.log(id);
+            //  let element = document.getElementById(id);
+
+            let element = document.createElement("img");
+            element.style.width = "200px"
+            element.style.height = "200px"
+            
+
+            element.src = id;
+
+             e.target.append(element);
+
+
+        }
+    </script>
+</body>
+</html>

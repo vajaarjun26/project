@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Premier League</title>
+</head>
+<style>
+    body{
+        background-color: black;
+    }
+    #container img {
+        width: 150px;
+        height: 150px;
+        cursor: pointer;
+    }
+    *{
+        color: white;
+    }
+    #container{
+    display: flex;
+    margin-left: 50px;
+   
+
+    }
+    .rr{
+        border: 1px solid wheat;
+    }
+
+    #dd {
+        margin-top: 30px;
+        margin-left: 100px;
+    }
+
+ 
+    .logo {
+        text-align: center ;
+        display: flex;
+        margin-left: 500px;
+    
+
+    }
+    .ol{
+        display: flex;
+    }
+    p{
+        font-size: 50px;
+        color: wheat;
+        margin-left: 100px;
+    }
+    h1{
+
+        color: whitesmoke;
+        font-size: 40px;
+        text-align: center;
+
+
+    }
+    .mainnn{
+        text-align: center;
+        margin-right: 400px;
+    }
+    #second{
+        display: none;
+        width: 50%;
+        margin: auto 0;
+        margin-left: 400px;
+        margin-top: 30px;
+        box-shadow: rgba(255, 251, 251, 0.35) 0px -50px 36px -28px inset;
+    }
+ 
+    #second button{
+        color: black;
+        padding: 20px;
+        text-align: center;
+    }
+    #rrl button{
+        color: white;
+        border: 1px solid wheat;
+        margin-left: 500px;
+
+    }
+ 
+
+</style>
+<body>
+    <img src="../images/ipllll.png" alt=""  height="160px" class="logo">
+    <div id="container">
+        <img src="/images/csk-removebg-preview.png" alt="">
+        <img src="/images/gt2-removebg-preview (1).png" alt="">
+        <img src="/images/lsg-removebg-preview.png" alt="">
+        <img src="/images/srh-removebg-preview.png" alt="">
+        <img src="/images/dc-removebg-preview.png" alt="">
+        <img src="/images/rr.png" alt="">
+        <img src="/images/mi-removebg-preview.png" alt="">
+        <img src="/images/kkr-removebg-preview.png" alt="">
+
+
+
+    </div>
+
+        <h1>Please Click On the Team to Select Your Team.</h1>
+
+    <div class="mainnn">
+
+        <div id="dd">  </div>
+
+        
+        <div id="dc"> </div>
+        
+    </div>
+
+
+    <div id="second">
+
+        <button>Head</button>
+        <button>Tail</button>
+      
+    </div>
+
+    <div class="ol">
+
+        <div id="rrl">
+            
+        </div>
+        
+        
+        <!-- <div id="resu">
+            
+        </div> -->
+    </div>
+    <script>
+
+            let allImages = document.querySelectorAll("#container img");
+
+            let dd = document.getElementById("dd");
+            let dc = document.getElementById("dc");
+
+            let arr = ["../images/csk-removebg-preview.png", "../images/gt2-removebg-preview (1).png", "../images/lsg-removebg-preview.png", "../images/srh-removebg-preview.png", "/images/dc-removebg-preview.png", "/images/rr.png", "/images/mi-removebg-preview.png", "/images/kkr-removebg-preview.png"];
+           
+            allImages.forEach(function(e){
+                e.addEventListener("click", function(event){
+                        let img1 = document.createElement("img");
+
+                        img1.style.border = "1px solid white";
+                        img1.style.height = "100px";
+                        img1.src = event.target.src;
+
+                        img1.style.width = "100px";
+
+                        dd.innerHTML="";
+                        dd.append(img1);
+
+                        //  for second image
+
+                        let img2 = document.createElement("img");
+                        img2.style.border = "1px solid white";
+                        img2.style.height = "100px";
+                        img2.style.width = "100px";
+
+                        let newarr = arr.filter(selection => selection!==img1.src);
+
+
+                        let i = Math.floor(Math.random() *newarr.length) ;
+                        let img2realpath = newarr[i];
+
+                        img2.setAttribute("src", img2realpath);
+
+                        dc.innerHTML="";
+                        dc.append(img2);
+
+
+                        img1.addEventListener("click", function(){
+                            let second = document.getElementById("second");
+                            second.style.display = "block";
+                            // alert("toss starting");
+
+                })
+
+
+                        let result = document.querySelectorAll("#second button")
+                        result.forEach(function(e){
+                            e.addEventListener("click", function(event){
+                            let rrl = document.getElementById("rrl")
+                           
+                            let randomresult = Math.floor(Math.random()*result.length);
+                            console.log(randomresult);
+
+                            let newres = document.createElement("p");
+
+
+
+                            let newres2 = document.createElement("p");
+                            
+                            console.log(rrl);
+                            console.log(newres);
+                            
+                            
+                            if(randomresult ==0){
+                                newres.textContent = "You Won the toss"
+                                
+                                if(randomresult ==0){
+
+                                    let bat = document.createElement("button");
+                                    let bowl = document.createElement("button");
+
+
+                                    bat.style.color = "white";
+                                    bat.style.backgroundColor = "Black";
+                                    bat.style.fontSize = "24px";
+                                    bat.style.marginTop = "20px";
+                                    bat.style.marginLeft = "80px";
+                                    
+                                    bowl.style.color = "white";
+                                    bowl.style.backgroundColor = "Black";
+                                    bowl.style.fontSize = "24px";
+                                    bowl.style.marginTop = "20px";
+                                    bowl.style.marginLeft = "80px";
+                                    
+                                    bat.textContent = "Bat";
+                                    bowl.textContent = "Bowl";
+
+                                    rrl.append(bat);
+                                    rrl.append(bowl);
+                         
+
+
+                                }
+                                
+                           
+                            }
+                            else{
+                                newres.textContent = "You Loss the toss!!"
+                                
+                            }
+                            
+                            second.appendChild(newres);
+
+                        })
+                    })
+
+                
+     
+                 })
+                
+            })
+
+
+
+                    
+            
+ 
+    </script>
+
+
+</body>
+
+</html>

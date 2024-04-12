@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .box img{
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            background-image: url(/images/box9.jpeg);
+  background-color: rgba(255, 255, 255, 0.5);
+            
+        }
+        .main img{
+            width: 500px;
+            height: 500px;
+            opacity: 0.8;
+       
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <img src="/images/brick.jpeg" alt="">
+        <img src="/images/brick2.jpeg" alt="">
+        <img src="/images/brick3.jpeg" alt="">
+        
+    </div>
+
+    <div class="main">
+        <img src="/images/new-aqua-onyx-stone-texture-marble-wallpaper-mural (1).png" alt="">
+    </div>
+
+    <script>
+
+        var images = document.querySelectorAll(".box img");
+
+        images.forEach(function (e){
+                e.addEventListener("click" , function(){
+                    var path = this.getAttribute("src");
+
+                    console.log(path);
+                    
+                    var set = document.querySelector(".main img")
+
+                     set.setAttribute("src" , path)
+                })
+        })
+        // console.log(images);
+
+    </script>
+</body>
+
+</html>

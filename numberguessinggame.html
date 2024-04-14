@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: bisque;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        h1{
+            text-align: center;
+        }
+        .inp{
+            justify-content: center;
+            justify-items: center;
+            margin:auto 0;
+            padding: 5px;
+        }
+        .btn{
+            text-align: center;
+            padding: 5px;
+        }
+        .box{
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+        }
+        .save{
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+            margin-top:90px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h1>Number Guessing Game</h1>
+    <h2>Guess number between 0 to 100</h2>
+    <div class="box">
+        <input type="number" placeholder="Enter your guess!" id="inp" class="inp">
+        <button id="btnid" class="btn"> Check</button>
+    </div>
+    <div id="save" class="save"></div>
+
+    <script>
+
+        let computer_data = Math.floor(Math.random()*100) + 1;
+
+        let saving = document.getElementById("save")
+
+
+
+        console.log(computer_data);
+
+
+         document.getElementById("btnid").addEventListener("click" ,function(){
+
+            
+
+            let ans = document.getElementById("inp").value;
+
+                if(ans > computer_data){
+                    saving.textContent = "Enter lower number";
+                }
+                else if(ans < computer_data){
+                    saving.textContent = "Enter Upper  number";
+           
+                }
+                else{
+                    saving.textContent = "Yes You Won!! " + computer_data
+                }
+
+        })
+    </script>
+
+</body>
+</html>
